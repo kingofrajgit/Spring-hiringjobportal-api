@@ -1,0 +1,39 @@
+applicationInsertBycompanyStaff
+post
+url : http://localhost:9000/application/insert
+{
+    "jobId":"12",
+    "branch":"IT",
+    "companyName":"Gopi-consultency",
+    "roll":"software devloper",
+    "vacancy":"12",
+    "location":"chennai,mumbai",
+    "lastDate":"2022-05-23",
+    "skills":"python",
+    "salary":"420000",
+    "mailId":"Gopiconsultency@gmail.com"
+}
+
+//========================================
+applicationUpdateBy
+get
+http://localhost:9000/application/updateByVancancyAndSalaryAndFinalDate/2/12/500000
+
+//=========================================
+getAllApplication
+get
+http://localhost:9000/application/getAllApplication
+
+//=========================================
+applyJobApplication-user
+post
+url : http://localhost:9000/application/applyJobApplication
+{
+    "jobid":"56",
+    "mailId":"kinofraj.7092@gmail.com"
+}
+
+//=========================================
+getAllApplicationWhereFinalDate - displayFeature
+get 
+url : http://localhost:9000/application/getAllApplicationWhereFinalDate

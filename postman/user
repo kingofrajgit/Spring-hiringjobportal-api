@@ -1,0 +1,31 @@
+registration validation
+post
+url : http://localhost:9000/user/registration/checkByMailAndpass
+{
+    "userMailId":"jdcjh@gmail.com",
+    "userPass":"12345jay"
+}
+//=================================
+Registtration
+post
+url : http://localhost:9000/user/registration
+{
+    "userMailId":"jdcjh@gmail.com",
+    "userPass":"12345jay",
+    "userName":"hdyjyfd",
+    "dateOfBirdth":"2000-03-20",
+    "collegeName":"gce",
+    "course":"be",
+    "branch":"ece",
+    "gender":"f",
+    "phoneNumber":"7540029995"
+}
+
+//=========================================
+login
+post
+url : http://localhost:9000/user/registration/login
+{
+    "userMailId":"jdch@gmail.com",
+    "userPass":"12345jay"
+}

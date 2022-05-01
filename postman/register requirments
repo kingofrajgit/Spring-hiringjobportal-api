@@ -1,0 +1,10 @@
+collegeRequired
+get
+url : http://localhost:9000/Register/Requirement/findCollege
+
+//======================================
+courseRequired
+get
+url : http://localhost:9000/Register/Requirement/findCourse
+
+//=======================================
