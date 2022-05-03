@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven.compiler.source>17</maven.compiler.source>
-		<sonar.projectKey>hiring-Job-portal-api-API</sonar.projectKey>
+		<sonar.projectKey>hiring-job-portal-api</sonar.projectKey>
 		<sonar.organization>kv-b1-2022</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
