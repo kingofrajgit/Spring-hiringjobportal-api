@@ -2,11 +2,14 @@ package com.hiringJobPortal.hiringJobportalapi.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+import com.hiringJobPortal.hiringJobportalapi.dao.ApplicationRepository;
 import com.hiringJobPortal.hiringJobportalapi.dao.UserRepository;
+import com.hiringJobPortal.hiringJobportalapi.model.Application;
 import com.hiringJobPortal.hiringJobportalapi.model.User;
 import com.hiringJobPortal.hiringJobportalapi.model.ViewCollege;
 import com.hiringJobPortal.hiringJobportalapi.validator.RegistrationValidation;
@@ -20,6 +23,9 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	ApplicationRepository application;
 
 	@Autowired
 	RegistrationValidation validation;
@@ -92,5 +98,27 @@ public class UserService {
 		}
 		return ans;
 	}
+
+	public Object forgetPassword(String password, String mailId) {
+		
+		String result = null;
+		try {
+			int m = userRepository.forgetPassword(password,mailId);
+			if(m != 0) {
+				result = "successfull";
+				
+			}else {
+				result = "unsuccessfull";
+			}
+		}catch(SQLException e){
+			result = "unsuccessfull";
+		}
+		return result;
+	}
+
+	//public List<Application> getApplicationByUserMailId(String emailId) {
+	//	return application.findApplicationByEmail(emailId);
+		
+	//}
 
 }

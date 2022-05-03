@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hiringJobPortal.hiringJobportalapi.model.Application;
+import com.hiringJobPortal.hiringJobportalapi.model.User;
 
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
@@ -32,4 +33,6 @@ public interface ApplicationRepository extends JpaRepository<Application, Intege
 //	@Query("update Application u set u.vacancy=:obj.vacancy , u.salary=:obj.salary where u.jobId=:id")
 //	void updateByVancancyAndSalaryAndFinalDate(@Param("id")int id, ) ;
 	
+	@Query(value="SELECT  hiring_companys.job_id,hiring_companys.company_name,hiring_companys.branch,hiring_companys.roll,hiring_companys.skills,hiring_companys.salary,job_application.user_mail_id FROM hiring_companys INNER JOIN job_application ON hiring_companys.job_id=job_application.job_id WHERE job_application.user_mail_id =?1",nativeQuery=true)
+	List<Application> findApplicationByEmail(String emailId);
 }
