@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.dao;
+package com.hiring.app.dao;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hiringJobPortal.hiringJobportalapi.model.Application;
-import com.hiringJobPortal.hiringJobportalapi.model.User;
+import com.hiring.app.model.Application;
+import com.hiring.app.model.User;
 
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {

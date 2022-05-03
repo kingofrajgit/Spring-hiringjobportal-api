@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.model;
+package com.hiring.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,17 +1,14 @@
-package com.hiringJobPortal.hiringJobportalapi.controllers;
-
-import java.util.List;
+package com.hiring.app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hiringJobPortal.hiringJobportalapi.model.User;
-import com.hiringJobPortal.hiringJobportalapi.service.UserService;
+
+import com.hiring.app.model.User;
+import com.hiring.app.service.UserService;
 
 @RestController
 public class UserController {
@@ -25,21 +22,21 @@ public class UserController {
 		
 	}
 	
-	@PostMapping("user/registration/checkByMailAndpass")
+	@PostMapping("user/checkByMailAndpass")
 	public Object checkByMailAndPass(@RequestBody User user){
 		return service.getEmailAndPass(user);
 	}
 	
-	@PostMapping("user/registration/login")
+	@PostMapping("user/login")
 	public Object login(@RequestBody User user){
 		return service.login(user);
 	}
 	
-	@PostMapping("user/registration/deletById")
+	@PostMapping("user/deletById")
 	public Object deleteUserById(@RequestParam("mailId")String emailId){
 		return service.deleteUserById(emailId);
 	}
-	@PostMapping("user/registration/forgetPassword")
+	@PostMapping("user/forgetPassword")
 	public Object forgetPassword(@RequestBody User user){
 		String password = user.getUserPass();
 		String mailId = user.getUserMailId();

@@ -1,10 +1,10 @@
-package com.hiringJobPortal.hiringJobportalapi.validator;
+package com.hiring.app.validator;
 
 import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.hiringJobPortal.hiringJobportalapi.model.User;
+import com.hiring.app.model.User;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j

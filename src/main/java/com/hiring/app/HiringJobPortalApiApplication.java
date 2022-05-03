@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi;
+package com.hiring.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

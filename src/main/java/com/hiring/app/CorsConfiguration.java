@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi;
+package com.hiring.app;
 
 
 import org.springframework.context.annotation.Configuration;

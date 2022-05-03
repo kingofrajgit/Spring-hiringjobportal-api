@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.controllers;
+package com.hiring.app.controllers;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hiringJobPortal.hiringJobportalapi.dao.CollegeRepository;
-import com.hiringJobPortal.hiringJobportalapi.model.Courses;
-import com.hiringJobPortal.hiringJobportalapi.model.ViewCollege;
-import com.hiringJobPortal.hiringJobportalapi.service.RegisterRequirementService;
+import com.hiring.app.dao.CollegeRepository;
+import com.hiring.app.model.Courses;
+import com.hiring.app.model.ViewCollege;
+import com.hiring.app.service.RegisterRequirementService;
 
 @RestController
 public class RegisterRequirementController {

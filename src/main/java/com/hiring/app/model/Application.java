@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.model;
+package com.hiring.app.model;
 
 import java.time.LocalDate;
 

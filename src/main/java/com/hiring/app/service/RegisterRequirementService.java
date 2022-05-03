@@ -1,14 +1,15 @@
-package com.hiringJobPortal.hiringJobportalapi.service;
+package com.hiring.app.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import com.hiringJobPortal.hiringJobportalapi.dao.CollegeRepository;
-import com.hiringJobPortal.hiringJobportalapi.dao.CourseRepository;
-import com.hiringJobPortal.hiringJobportalapi.model.Courses;
-import com.hiringJobPortal.hiringJobportalapi.model.ViewCollege;
+import com.hiring.app.dao.CollegeRepository;
+import com.hiring.app.dao.CourseRepository;
+import com.hiring.app.exception.MyOwnRuntimeException;
+import com.hiring.app.model.Courses;
+import com.hiring.app.model.ViewCollege;
 
 @Configuration
 public class RegisterRequirementService {
@@ -29,10 +30,10 @@ public class RegisterRequirementService {
 		String ans = null;
 		try {
 			ViewCollege m = college.save(details);
-			if (!m.equals(null)) {
+			if (m != null) {
 				ans = "success";
 			} else {
-				throw new Exception("unsuccess");
+				throw new MyOwnRuntimeException("unsuccess");
 			}
 		} catch (Exception e) {
 			ans = "unsuccess";
@@ -46,10 +47,10 @@ public class RegisterRequirementService {
 		String ans = null;
 		try {
 			Courses m = course.save(courseDetails);
-			if (!m.equals(null)) {
+			if (m != null) {
 				ans = "success";
 			} else {
-				throw new Exception("unsuccess");
+				throw new MyOwnRuntimeException("unsuccess");
 			}
 		} catch (Exception e) {
 			ans = "unsuccess";

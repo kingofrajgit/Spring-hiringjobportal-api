@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.service;
+package com.hiring.app.service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import com.hiringJobPortal.hiringJobportalapi.dao.ApplicationRepository;
-import com.hiringJobPortal.hiringJobportalapi.model.Application;
+import com.hiring.app.dao.ApplicationRepository;
+import com.hiring.app.model.Application;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j

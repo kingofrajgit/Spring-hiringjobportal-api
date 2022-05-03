@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi.controllers;
+package com.hiring.app.controllers;
 
 
 
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hiringJobPortal.hiringJobportalapi.dao.ApplicationRepository;
-import com.hiringJobPortal.hiringJobportalapi.dao.AppliedApplicationRepository;
-import com.hiringJobPortal.hiringJobportalapi.model.Application;
-import com.hiringJobPortal.hiringJobportalapi.model.AppliedApplication;
-import com.hiringJobPortal.hiringJobportalapi.service.ApplicationService;
+import com.hiring.app.dao.ApplicationRepository;
+import com.hiring.app.dao.AppliedApplicationRepository;
+import com.hiring.app.model.Application;
+import com.hiring.app.model.AppliedApplication;
+import com.hiring.app.service.ApplicationService;
 
 @RestController
 public class ApplicationController {

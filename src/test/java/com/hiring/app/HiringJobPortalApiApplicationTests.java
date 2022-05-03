@@ -1,4 +1,4 @@
-package com.hiringJobPortal.hiringJobportalapi;
+package com.hiring.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

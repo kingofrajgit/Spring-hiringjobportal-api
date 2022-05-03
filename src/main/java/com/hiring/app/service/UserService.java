@@ -1,20 +1,17 @@
-package com.hiringJobPortal.hiringJobportalapi.service;
+package com.hiring.app.service;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import com.hiringJobPortal.hiringJobportalapi.dao.ApplicationRepository;
-import com.hiringJobPortal.hiringJobportalapi.dao.UserRepository;
-import com.hiringJobPortal.hiringJobportalapi.model.Application;
-import com.hiringJobPortal.hiringJobportalapi.model.User;
-import com.hiringJobPortal.hiringJobportalapi.model.ViewCollege;
-import com.hiringJobPortal.hiringJobportalapi.validator.RegistrationValidation;
+import com.hiring.app.dao.ApplicationRepository;
+import com.hiring.app.dao.UserRepository;
+import com.hiring.app.exception.MyOwnRuntimeException;
+import com.hiring.app.model.User;
+import com.hiring.app.validator.RegistrationValidation;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,7 +20,7 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	ApplicationRepository application;
 
@@ -34,10 +31,10 @@ public class UserService {
 		String ans = null;
 		try {
 			User m = userRepository.save(user);
-			if (!m.equals(null)) {
+			if (m != null) {
 				ans = "success";
 			} else {
-				throw new Exception();
+				throw new MyOwnRuntimeException("unsuccess");
 			}
 		} catch (Exception e) {
 			ans = "unsuccess";
@@ -51,7 +48,7 @@ public class UserService {
 		String ans = null;
 		try {
 			List<User> m = userRepository.findAll();
-			if (!m.equals(null)) {
+			if (m != null) {
 				ans = validation.emailPasswordValidation(m, user);
 			} else {
 				throw new SQLException("records not found");
@@ -84,7 +81,7 @@ public class UserService {
 		String ans = null;
 		try {
 			List<User> m = userRepository.findAll();
-			if (!m.equals(null)) {
+			if (m != null) {
 				ans = validation.loginValidation(m, user);
 			} else {
 				throw new SQLException("records not found");
@@ -100,25 +97,24 @@ public class UserService {
 	}
 
 	public Object forgetPassword(String password, String mailId) {
-		
+
 		String result = null;
 		try {
-			int m = userRepository.forgetPassword(password,mailId);
-			if(m != 0) {
+			int m = userRepository.forgetPassword(password, mailId);
+			if (m != 0) {
 				result = "successfull";
-				
-			}else {
+
+			} else {
 				result = "unsuccessfull";
 			}
-		}catch(SQLException e){
+		} catch (SQLException e) {
 			result = "unsuccessfull";
 		}
 		return result;
 	}
 
-	//public List<Application> getApplicationByUserMailId(String emailId) {
-	//	return application.findApplicationByEmail(emailId);
-		
-	//}
+	// public List<Application> getApplicationByUserMailId(String emailId) {
+	// return application.findApplicationByEmail(emailId);
+	// }
 
 }
