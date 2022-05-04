@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.hiring.app.dao.ApplicationRepository;
 import com.hiring.app.dao.UserRepository;
-import com.hiring.app.exception.MyOwnRuntimeException;
+import com.hiring.app.exception.ValidatorException;
 import com.hiring.app.model.User;
 import com.hiring.app.validator.RegistrationValidation;
 
@@ -30,14 +30,17 @@ public class UserService {
 	public String inserUserDetails(User user) {
 		String ans = null;
 		try {
+			// validation
+			validation.loginFieldValidation(user);
+			//repository
 			User m = userRepository.save(user);
 			if (m != null) {
 				ans = "success";
 			} else {
-				throw new MyOwnRuntimeException("unsuccess");
+				throw new ValidatorException("unsuccess");
 			}
 		} catch (Exception e) {
-			ans = "unsuccess";
+			ans = e.getMessage();
 		}
 
 		return ans;
@@ -96,7 +99,7 @@ public class UserService {
 		return ans;
 	}
 
-	public Object forgetPassword(String password, String mailId) {
+	public Object forgotPassword(String password, String mailId) {
 
 		String result = null;
 		try {

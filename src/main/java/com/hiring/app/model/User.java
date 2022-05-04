@@ -1,11 +1,11 @@
 package com.hiring.app.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.Constraint;
-
 import org.springframework.validation.annotation.Validated;
 
 import lombok.AllArgsConstructor;
@@ -33,7 +33,7 @@ public class User {
 	private String userName = null;
 	
 	@Column(name = "date_of_birdth")
-	private String dateOfBirdth = null;
+	private LocalDate dateOfBirth = null;
 	
 	@Column(name = "college_name")
 	private String collegeName = null;

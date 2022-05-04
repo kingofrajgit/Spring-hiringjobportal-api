@@ -37,10 +37,10 @@ public class UserController {
 		return service.deleteUserById(emailId);
 	}
 	@PostMapping("user/forgetPassword")
-	public Object forgetPassword(@RequestBody User user){
+	public Object forgotPassword(@RequestBody User user){
 		String password = user.getUserPass();
 		String mailId = user.getUserMailId();
-		return service.forgetPassword(password,mailId);
+		return service.forgotPassword(password,mailId);
 	}
 	
 //	@GetMapping("user/registration/viweMyApplication")

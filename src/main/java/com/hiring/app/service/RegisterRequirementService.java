@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.hiring.app.dao.CollegeRepository;
 import com.hiring.app.dao.CourseRepository;
-import com.hiring.app.exception.MyOwnRuntimeException;
+import com.hiring.app.exception.ValidatorException;
 import com.hiring.app.model.Courses;
 import com.hiring.app.model.ViewCollege;
 
@@ -33,7 +33,7 @@ public class RegisterRequirementService {
 			if (m != null) {
 				ans = "success";
 			} else {
-				throw new MyOwnRuntimeException("unsuccess");
+				throw new ValidatorException("unsuccess");
 			}
 		} catch (Exception e) {
 			ans = "unsuccess";
@@ -50,7 +50,7 @@ public class RegisterRequirementService {
 			if (m != null) {
 				ans = "success";
 			} else {
-				throw new MyOwnRuntimeException("unsuccess");
+				throw new ValidatorException("unsuccess");
 			}
 		} catch (Exception e) {
 			ans = "unsuccess";

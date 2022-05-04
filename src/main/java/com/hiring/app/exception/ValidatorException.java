@@ -1,16 +1,14 @@
 package com.hiring.app.exception;
 
-public class MyOwnRuntimeException extends Exception {
-
-	public MyOwnRuntimeException(String string) {
-
-	}
-
+public class ValidatorException extends Exception {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6353957996348719222L;
 	
+	public ValidatorException(String string) {
+		super(string);
+	}
 	
 
 }
