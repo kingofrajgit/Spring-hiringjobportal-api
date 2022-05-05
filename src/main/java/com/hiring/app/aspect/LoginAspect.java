@@ -1,4 +1,4 @@
-package com.hiring.app.service;
+package com.hiring.app.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -7,9 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 @Aspect
 @Component		
 public class LoginAspect {

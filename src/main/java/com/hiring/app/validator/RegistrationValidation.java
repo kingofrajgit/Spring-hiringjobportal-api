@@ -1,8 +1,5 @@
 package com.hiring.app.validator;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -70,9 +67,9 @@ public class RegistrationValidation {
 	}
 
 	public void fieldDateOfBirthValidate(LocalDate dateOfBirth) throws ValidatorException {
-//		if (dateOfBirth == null) {
-//			throw new ValidatorException("date of birth filed is mandatory");
-//		}
+		if (dateOfBirth == null) {
+			throw new ValidatorException("date of birth filed is mandatory");
+		}
 		if (dateOfBirth.isBefore(LocalDate.now())) {
 			throw new ValidatorException("feature date is not date of birth");
 		}
