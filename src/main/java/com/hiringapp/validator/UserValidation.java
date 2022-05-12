@@ -23,14 +23,14 @@ public class UserValidation {
 	 * @param m
 	 * @param user
 	 * @return
+	 * @throws ValidatorException 
 	 */
-	public String emailPasswordValidation(List<User> m, UserDTO user) {
+	public String emailPasswordValidation(List<User> m, UserDTO user) throws ValidatorException {
 		String ans = null;
 		for (User u : m) {
 			if (u.getUserMailId().equals(user.getUserMailId())) {
 				log.info("this email id is already presnt");
-				ans = "all ready present";
-				break;
+				throw new ValidatorException("invalid credential");
 			} else {
 				ans = success;
 			}
@@ -90,7 +90,6 @@ public class UserValidation {
 			throw new ValidatorException("date of birth filed is mandatory");
 		}
 		if (!dateOfBirth.isBefore(LocalDate.now())) {
-			System.out.println(dateOfBirth.isBefore(LocalDate.now()));
 			throw new ValidatorException("feature date is not date of birth");
 		}
 	}

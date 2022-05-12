@@ -37,8 +37,8 @@ public class UserController {
 			String result = service.getEmailAndPass(user);
 			MessageDTO message = new MessageDTO(result);
 			return new ResponseEntity<>(message.getMessage(), HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		} catch (ValidatorException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 	}
 
@@ -69,7 +69,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("user/login")
-	public  ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
+	public ResponseEntity<?> login(@RequestBody UserDTO userDTO) {
 		try {
 			User result = service.login(userDTO);
 			return new ResponseEntity<>(result, HttpStatus.OK);
@@ -104,19 +104,19 @@ public class UserController {
 	@PostMapping("user/forgetPassword")
 	public ResponseEntity<?> forgotPassword(@RequestBody UserDTO user) {
 		try {
-		String password = user.getUserPass();
-		String mailId = user.getUserMailId();
-		String result = service.forgotPassword(password, mailId);
-		MessageDTO message = new MessageDTO(result);
-		return new ResponseEntity<>(message.getMessage(), HttpStatus.OK);
-	} catch (Exception e) {
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+			String password = user.getUserPass();
+			String mailId = user.getUserMailId();
+			String result = service.forgotPassword(password, mailId);
+			MessageDTO message = new MessageDTO(result);
+			return new ResponseEntity<>(message.getMessage(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@GetMapping("user/registration/viweMyApplication")
-	public  ResponseEntity<?> viweMyApplication(@RequestParam("mailId")String mailId){
-		
+	public ResponseEntity<?> viweMyApplication(@RequestParam("mailId") String mailId) {
+
 		try {
 			List<Application> list = service.getApplicationByUserMailId(mailId);
 			return new ResponseEntity<>(list, HttpStatus.OK);
@@ -124,5 +124,4 @@ public class UserController {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 }

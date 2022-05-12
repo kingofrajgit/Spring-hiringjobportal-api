@@ -88,11 +88,12 @@ public class UserService {
 			if (m != null) {
 				ans = validation.emailPasswordValidation(m, user);
 			} else {
+				
 				throw new ValidatorException("records not found");
 			}
 		} catch (ValidatorException e) {
 			log.info(e.getMessage());
-			ans = UNSUCCESS;
+			throw new ValidatorException(e.getMessage());
 		}
 		return ans;
 	}
