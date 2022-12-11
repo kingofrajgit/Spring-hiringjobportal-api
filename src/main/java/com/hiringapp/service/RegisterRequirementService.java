@@ -1,9 +1,13 @@
 package com.hiringapp.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.hiringapp.dao.CollegeRepository;
 import com.hiringapp.dao.CourseRepository;
@@ -20,12 +24,16 @@ public class RegisterRequirementService {
 	@Autowired
 	CourseRepository course;
 
-	public List<ViewCollege> getAll() {
-		return college.findAll();
+	public List<ViewCollege> getAll() throws ValidatorException {
+		try {
+			return college.findAll();
+		}catch(DataAccessException e) {
+			throw new ValidatorException("no list found");
+		}
 
 	}
 
-	public String insertCollege(ViewCollege details) {
+	public String insertCollege(ViewCollege details) throws ValidatorException {
 
 		String ans = null;
 		try {
@@ -36,13 +44,13 @@ public class RegisterRequirementService {
 				throw new ValidatorException("unsuccess");
 			}
 		} catch (Exception e) {
-			ans = "unsuccess";
+			throw new ValidatorException("unsuccess");
 		}
 
 		return ans;
 	}
 
-	public String courseInsert(Courses courseDetails) {
+	public String courseInsert(Courses courseDetails) throws ValidatorException {
 
 		String ans = null;
 		try {
@@ -53,14 +61,19 @@ public class RegisterRequirementService {
 				throw new ValidatorException("unsuccess");
 			}
 		} catch (Exception e) {
-			ans = "unsuccess";
+			throw new ValidatorException("unsuccess");
 		}
 
 		return ans;
 	}
 
-	public List<Courses> getAllCourse() {
-		return course.findAll();
+	public List<Courses> getAllCourse() throws ValidatorException {
+		try {
+			return course.findAll();
+		}catch(DataAccessException e) {
+			throw new ValidatorException("no list found");
+		}
+
 	}
 
 	public String deletecollege(int id) {

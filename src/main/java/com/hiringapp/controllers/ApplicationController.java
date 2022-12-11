@@ -84,11 +84,16 @@ public class ApplicationController {
 	 * 
 	 * @return
 	 */
-	@GetMapping("application/getAllApplication")
-	public List<Application> getAllApplication() {
-		return applicationRepository.findAll();
-
-	}
+//	@GetMapping("application/getAllApplication")
+//	public List<Application> getAllApplication() {
+//		MessageDTO message = new MessageDTO)();
+//		try {
+//		return applicationService.findAll();
+//		}catch(Exception e ) {
+//			return ResponseEntity<>(message.getMessage());
+//		}
+//
+//	}
 
 	/**
 	 * user apply job application

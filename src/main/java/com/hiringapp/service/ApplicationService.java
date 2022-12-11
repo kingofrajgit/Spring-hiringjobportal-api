@@ -25,7 +25,7 @@ public class ApplicationService {
 	 * @return
 	 */
 	public List<Application> findAll() {
-		
+	
 	return applicationRepository.findAll();
 	}
 

@@ -141,6 +141,7 @@ public class UserService {
 
 		String result = null;
 		try {
+			
 			int m = userRepository.forgetPassword(password, mailId);
 			if (m != 0) {
 				result = SUCCESS;
